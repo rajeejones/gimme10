@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ChallengeSetupViewController: UIViewController {
 
@@ -34,7 +35,7 @@ class ChallengeSetupViewController: UIViewController {
   var previousTextField: UITextField?
   var nextTextField: UITextField?
   
-  var workouts = ["","Pushup Challenge", "Crunches Challenge", "Squat Challenge", "Lunges Challenge"]
+  var workouts:[WorkoutType] = [WorkoutType.empty, WorkoutType.pushups, WorkoutType.crunches, WorkoutType.squats, WorkoutType.lunges]
   var dailyReps = ["",10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200] as [Any]
   var repsPerSet = ["",2,5,10,15,20] as [Any]
   var days = ["",1,3,5,7,10,14,21,30] as [Any]
@@ -47,11 +48,40 @@ class ChallengeSetupViewController: UIViewController {
   let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(donePicker))
   let customToolbar = UIToolbar()
   
+  var challenges: [Challenge] = []
+  var currentChallenge: Challenge?
+  var values: [String:Any] = [String:Any]()
+  
   override func viewDidLoad() {
       super.viewDidLoad()
 
       setup()
       // Do any additional setup after loading the view.
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+      return
+    }
+    
+    let managedContext = appDelegate.persistentContainer.viewContext
+    
+    do {
+      challenges = try managedContext.fetch(Challenge.fetchRequest())
+      
+      if challenges.count != 0 {
+        for challenge in challenges {
+          if challenge.isCurrent {
+            currentChallenge = challenge
+            break
+          }
+        }
+      }
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+    }
+    
+    setTextFields()
   }
 
   override func didReceiveMemoryWarning() {
@@ -108,6 +138,18 @@ class ChallengeSetupViewController: UIViewController {
     submitButton.alpha = 0.45
   }
   
+  private func setTextFields() {
+    if let _ = currentChallenge {
+      let workout = currentChallenge?.workout as! Workout
+      workoutTextField.text = workout.type.toString()
+      dailyRepsTextField.text = String(describing: currentChallenge?.dailyReps)
+      repsPerSetTextField.text = String(describing: currentChallenge?.repsPerSet)
+      durationTextField.text = String(describing: currentChallenge?.title)
+      startTimeTextField.text = String(describing: currentChallenge?.startHour) + " a.m"
+      
+    }
+  }
+  
   
   func donePicker (sender: UIBarButtonItem) {
     
@@ -135,8 +177,62 @@ class ChallengeSetupViewController: UIViewController {
     previousTextField?.becomeFirstResponder()
   }
  
+  func saveWorkout(completion: (_ saved:Bool) -> Void) {
+    if values.count > 0 {
+      
+      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        return
+      }
+      
+      let managedContext = appDelegate.persistentContainer.viewContext
+      
+      let challenge = Challenge(entity: Challenge.entity(), insertInto: managedContext)
+      
+      let workoutType = values["workout"] as! WorkoutType
+      let workout = Workout(withType: workoutType)
+      challenge.workout = workout
+      challenge.dailyReps = Int16(values["dailyreps"] as! Int)
+      challenge.repsPerSet = Int16(values["repsPerSet"] as! Int)
+      challenge.title = values["title"] as! String
+      challenge.startHour = Int16(values["startHour"] as! Int)
+      challenge.startDate = Date() as NSDate
+      
+      let days = values["days"] as! Int
+      if let endDate = Calendar.current.date(byAdding: Calendar.Component.day, value: days, to: Date()) as NSDate? {
+        challenge.endDate = endDate
+      }
+      
+      challenge.isCurrent = true
+      
+      do {
+        try managedContext.save()
+        //completion(true)
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
+        //completion(false)
+      }
+      
+    }
+    
+  }
 
   @IBAction func submitButtonPressed(_ sender: Any) {
+    
+    saveWorkout { [weak self](saved) in
+      if saved {
+        let alert = UIAlertController(title: "Challenge Saved!", message: "We will send you notifications when its time to do a set!", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        
+        self?.present(alert, animated: true, completion: {
+          self?.dismiss(animated: true, completion: nil)
+        })
+      } else {
+        let alert = UIAlertController(title: "Unable to Save", message: "We're sorry, there was an error saving your challenge. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        
+        self?.present(alert, animated: true, completion: nil)
+      }
+    }
     
   }
     /*
@@ -208,17 +304,23 @@ extension ChallengeSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     if pickerView == workoutPicker {
-      workoutTextField.text = workouts[row]
+      workoutTextField.text = workouts[row].toString()
+      values["workout"] = workouts[row]
     } else if pickerView == dailyRepsPicker {
       dailyRepsTextField.text = String(describing: dailyReps[row])
+      values["dailyreps"] = dailyReps[row]
     } else if pickerView == repsPerSetPicker {
       repsPerSetTextField.text = String(describing: repsPerSet[row])
+      values["repsPerSet"] = repsPerSet[row]
     } else if pickerView == daysPicker {
-      let challenge = String(describing: days[row])
-      durationTextField.text = challenge == "" ? "" : "\(challenge) day challenge"
+      let challengeTitle = String(describing: days[row]) == "" ? "" : "\(String(describing: days[row])) day challenge"
+      durationTextField.text = challengeTitle
+      values["title"] = challengeTitle
+      values["days"] = days[row]
     } else if pickerView == startTimePicker {
       let time = String(describing: startTime[row])
       startTimeTextField.text = time == "" ? "" : "\(time) a.m"
+      values["startHour"] = startTime[row]
     }
   }
   
@@ -227,7 +329,7 @@ extension ChallengeSetupViewController: UIPickerViewDelegate, UIPickerViewDataSo
     var titleRow = ""
     
     if pickerView == workoutPicker {
-      titleRow = workouts[row]
+      titleRow = workouts[row].toString()
     } else if pickerView == dailyRepsPicker {
       let rep = String(describing: dailyReps[row])
       titleRow = rep
