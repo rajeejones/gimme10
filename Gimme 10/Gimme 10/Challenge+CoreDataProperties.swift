@@ -2,7 +2,7 @@
 //  Challenge+CoreDataProperties.swift
 //  Gimme 10
 //
-//  Created by Rajee Jones on 4/29/17.
+//  Created by Rajee Jones on 4/30/17.
 //  Copyright © 2017 Rajee Jones. All rights reserved.
 //
 
@@ -25,6 +25,7 @@ extension Challenge {
     @NSManaged public var startHour: Int16
     @NSManaged public var title: String
     @NSManaged public var totalSets: Int16
-    @NSManaged public var workout: Workout
+    @NSManaged public var workout: String
+    @NSManaged public var days: Int16
 
 }

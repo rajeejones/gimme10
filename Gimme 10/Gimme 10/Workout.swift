@@ -7,26 +7,6 @@
 //
 
 import UIKit
-import Foundation
-import CoreData
-
-public class Workout: NSManagedObject, NSCoding {
-  
-  var type: WorkoutType!
-  
-  init(withType type: WorkoutType) {
-    self.type = type
-  }
-  
-  required public init(coder aDecoder: NSCoder) {
-    self.type = aDecoder.decodeObject(forKey: "type") as! WorkoutType
-  }
-  
-  public func encode(with aCoder: NSCoder) {
-    aCoder.encode(self.type, forKey: "type")
-  }
-
-}
 
 enum WorkoutType: String {
   case pushups = "Pushup Challenge"
