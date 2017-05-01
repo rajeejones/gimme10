@@ -9,15 +9,33 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Firebase
+
+let admobKey = "admobID"
+let bannerAdKey = "bannerUnitID"
+
+var adMobPlist: NSDictionary? {
+  get {
+    guard let path = Bundle.main.path(forResource: "AdMobData", ofType: "plist"),
+      let dicRoot = NSDictionary(contentsOfFile: path) else { return nil }
+    
+    return dicRoot
+  }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    FIRApp.configure()
+    
+    if let id = adMobPlist?[admobKey] as? String {
+      GADMobileAds.configure(withApplicationID: id)
+    }
+    
     let center = UNUserNotificationCenter.current()
     
     center.requestAuthorization(options: [.alert,.badge,.sound]) { (granted, error) in

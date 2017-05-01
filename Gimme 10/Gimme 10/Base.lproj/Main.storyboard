@@ -78,16 +78,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-Ay-dU9" customClass="GADBannerView">
+                                <rect key="frame" x="12.5" y="553" width="350" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CCw-ON-0hj"/>
+                                    <constraint firstAttribute="width" constant="350" id="mfb-8y-2ph"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TF7-eg-GNl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="37" id="1U9-Kg-Sk1"/>
                             <constraint firstItem="TF7-eg-GNl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Ai-a8-eHT"/>
                             <constraint firstItem="TF7-eg-GNl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="362:667" id="EI5-W4-rGN"/>
+                            <constraint firstItem="oLN-Ay-dU9" firstAttribute="top" secondItem="TF7-eg-GNl" secondAttribute="bottom" constant="38" id="Gtn-uN-fSu"/>
+                            <constraint firstItem="oLN-Ay-dU9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HA0-C1-LX6"/>
                             <constraint firstItem="hjy-ov-taw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="PyE-2V-isj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oLN-Ay-dU9" secondAttribute="bottom" id="TiN-hW-Vzs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hjy-ov-taw" secondAttribute="trailing" id="eBa-Xd-bjx"/>
                             <constraint firstItem="TF7-eg-GNl" firstAttribute="top" secondItem="hjy-ov-taw" secondAttribute="bottom" constant="8" id="kes-YJ-l9t"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TF7-eg-GNl" secondAttribute="bottom" constant="88" id="kzY-Fj-v9I"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TF7-eg-GNl" secondAttribute="bottom" priority="750" constant="88" id="kzY-Fj-v9I"/>
                             <constraint firstItem="hjy-ov-taw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="znP-Dc-8AD"/>
                         </constraints>
                     </view>
@@ -104,6 +115,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerAdView" destination="oLN-Ay-dU9" id="GCA-g4-kCt"/>
                         <outlet property="challengeSetupButton" destination="lgO-id-2ZA" id="foL-oz-zVD"/>
                         <outlet property="completedChallengesButton" destination="tee-yd-yUh" id="twz-eh-SYV"/>
                         <outlet property="logWorkoutButton" destination="zVr-Bo-oBi" id="c54-on-7VZ"/>
@@ -423,7 +435,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TMe-Rl-3Mp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="E3Z-hf-vVq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="E3Z-hf-vVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

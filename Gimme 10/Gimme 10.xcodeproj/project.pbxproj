@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FFBCA5E9A0268F8C95F1066 /* Pods_Gimme_10.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FFC8CF838C307F8813F0E0 /* Pods_Gimme_10.framework */; };
+		EA038B331EB7B63900A20054 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA038B321EB7B63900A20054 /* GoogleService-Info.plist */; };
+		EA038B351EB7BF9A00A20054 /* AdMobData.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA038B341EB7BF9A00A20054 /* AdMobData.plist */; };
 		EA3C334C1EB6F37300257A67 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3C334B1EB6F37300257A67 /* HomeViewController.swift */; };
 		EA855D331EB3BD21004CFB22 /* ChallengeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA855D321EB3BD21004CFB22 /* ChallengeSetupViewController.swift */; };
 		EA855D441EB469F6004CFB22 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA855D431EB469F6004CFB22 /* AboutViewController.swift */; };
@@ -21,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10628AFF1D486449B02677E2 /* Pods-Gimme 10.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gimme 10.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gimme 10/Pods-Gimme 10.debug.xcconfig"; sourceTree = "<group>"; };
+		279F154B9A7F32B9BB165DD8 /* Pods-Gimme 10.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gimme 10.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gimme 10/Pods-Gimme 10.release.xcconfig"; sourceTree = "<group>"; };
+		D5FFC8CF838C307F8813F0E0 /* Pods_Gimme_10.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gimme_10.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA038B321EB7B63900A20054 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EA038B341EB7BF9A00A20054 /* AdMobData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AdMobData.plist; sourceTree = "<group>"; };
 		EA3C334B1EB6F37300257A67 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EA855D321EB3BD21004CFB22 /* ChallengeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeSetupViewController.swift; sourceTree = "<group>"; };
 		EA855D431EB469F6004CFB22 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -41,12 +49,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FFBCA5E9A0268F8C95F1066 /* Pods_Gimme_10.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06CD78CA40FB05A44C838591 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10628AFF1D486449B02677E2 /* Pods-Gimme 10.debug.xcconfig */,
+				279F154B9A7F32B9BB165DD8 /* Pods-Gimme 10.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		184DD93E8F7C1BF6E233F520 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5FFC8CF838C307F8813F0E0 /* Pods_Gimme_10.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA3C334D1EB6F39700257A67 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +98,8 @@
 				EA88DAF61EB6851A00DD1DDE /* Challenge+CoreDataProperties.swift */,
 				EAAFB8121EB37E9900A4BE68 /* Gimme 10 */,
 				EAAFB8111EB37E9900A4BE68 /* Products */,
+				06CD78CA40FB05A44C838591 /* Pods */,
+				184DD93E8F7C1BF6E233F520 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,9 +119,11 @@
 				EAAFB81D1EB37E9900A4BE68 /* Assets.xcassets */,
 				EAAFB81F1EB37E9900A4BE68 /* LaunchScreen.storyboard */,
 				EAAFB8221EB37E9900A4BE68 /* Info.plist */,
+				EA038B321EB7B63900A20054 /* GoogleService-Info.plist */,
 				EAAFB81A1EB37E9900A4BE68 /* Gimme_10.xcdatamodeld */,
 				EA3C334D1EB6F39700257A67 /* View */,
 				EA8A47501EB4D184007655DF /* Model */,
+				EA038B341EB7BF9A00A20054 /* AdMobData.plist */,
 			);
 			path = "Gimme 10";
 			sourceTree = "<group>";
@@ -105,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAAFB8251EB37E9900A4BE68 /* Build configuration list for PBXNativeTarget "Gimme 10" */;
 			buildPhases = (
+				7F1C0BAC9CEB6D4505506DF5 /* [CP] Check Pods Manifest.lock */,
 				EAAFB80C1EB37E9900A4BE68 /* Sources */,
 				EAAFB80D1EB37E9900A4BE68 /* Frameworks */,
 				EAAFB80E1EB37E9900A4BE68 /* Resources */,
+				F96333EEA4D42A6D3117F8CF /* [CP] Embed Pods Frameworks */,
+				F6D647B2350DF9061EB44FF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,12 +192,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAAFB8211EB37E9900A4BE68 /* LaunchScreen.storyboard in Resources */,
+				EA038B351EB7BF9A00A20054 /* AdMobData.plist in Resources */,
+				EA038B331EB7B63900A20054 /* GoogleService-Info.plist in Resources */,
 				EAAFB81E1EB37E9900A4BE68 /* Assets.xcassets in Resources */,
 				EAAFB8191EB37E9900A4BE68 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F1C0BAC9CEB6D4505506DF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6D647B2350DF9061EB44FF9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gimme 10/Pods-Gimme 10-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F96333EEA4D42A6D3117F8CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gimme 10/Pods-Gimme 10-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAAFB80C1EB37E9900A4BE68 /* Sources */ = {
@@ -299,6 +382,7 @@
 		};
 		EAAFB8261EB37E9900A4BE68 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10628AFF1D486449B02677E2 /* Pods-Gimme 10.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LNQ86AM2R8;
@@ -312,6 +396,7 @@
 		};
 		EAAFB8271EB37E9900A4BE68 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 279F154B9A7F32B9BB165DD8 /* Pods-Gimme 10.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LNQ86AM2R8;
@@ -319,6 +404,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rajeejones.Gimme-10";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
