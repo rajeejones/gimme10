@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA3C334C1EB6F37300257A67 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3C334B1EB6F37300257A67 /* HomeViewController.swift */; };
 		EA855D331EB3BD21004CFB22 /* ChallengeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA855D321EB3BD21004CFB22 /* ChallengeSetupViewController.swift */; };
 		EA855D441EB469F6004CFB22 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA855D431EB469F6004CFB22 /* AboutViewController.swift */; };
 		EA88DAF71EB6851A00DD1DDE /* Challenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA88DAF51EB6851A00DD1DDE /* Challenge+CoreDataClass.swift */; };
 		EA88DAF81EB6851A00DD1DDE /* Challenge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA88DAF61EB6851A00DD1DDE /* Challenge+CoreDataProperties.swift */; };
 		EA8A474F1EB4D062007655DF /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8A474E1EB4D062007655DF /* Workout.swift */; };
 		EAAFB8141EB37E9900A4BE68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAFB8131EB37E9900A4BE68 /* AppDelegate.swift */; };
-		EAAFB8161EB37E9900A4BE68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAFB8151EB37E9900A4BE68 /* ViewController.swift */; };
 		EAAFB8191EB37E9900A4BE68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAAFB8171EB37E9900A4BE68 /* Main.storyboard */; };
 		EAAFB81C1EB37E9900A4BE68 /* Gimme_10.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAAFB81A1EB37E9900A4BE68 /* Gimme_10.xcdatamodeld */; };
 		EAAFB81E1EB37E9900A4BE68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAAFB81D1EB37E9900A4BE68 /* Assets.xcassets */; };
@@ -21,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA3C334B1EB6F37300257A67 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EA855D321EB3BD21004CFB22 /* ChallengeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeSetupViewController.swift; sourceTree = "<group>"; };
 		EA855D431EB469F6004CFB22 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		EA88DAF51EB6851A00DD1DDE /* Challenge+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Challenge+CoreDataClass.swift"; path = "Gimme 10/Challenge+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		EA8A474E1EB4D062007655DF /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		EAAFB8101EB37E9900A4BE68 /* Gimme 10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gimme 10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAAFB8131EB37E9900A4BE68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EAAFB8151EB37E9900A4BE68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EAAFB8181EB37E9900A4BE68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAAFB81B1EB37E9900A4BE68 /* Gimme_10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gimme_10.xcdatamodel; sourceTree = "<group>"; };
 		EAAFB81D1EB37E9900A4BE68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +47,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA3C334D1EB6F39700257A67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA855D321EB3BD21004CFB22 /* ChallengeSetupViewController.swift */,
+				EA3C334B1EB6F37300257A67 /* HomeViewController.swift */,
+				EA855D431EB469F6004CFB22 /* AboutViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		EA8A47501EB4D184007655DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,14 +87,12 @@
 			isa = PBXGroup;
 			children = (
 				EAAFB8131EB37E9900A4BE68 /* AppDelegate.swift */,
-				EAAFB8151EB37E9900A4BE68 /* ViewController.swift */,
 				EAAFB8171EB37E9900A4BE68 /* Main.storyboard */,
 				EAAFB81D1EB37E9900A4BE68 /* Assets.xcassets */,
 				EAAFB81F1EB37E9900A4BE68 /* LaunchScreen.storyboard */,
 				EAAFB8221EB37E9900A4BE68 /* Info.plist */,
 				EAAFB81A1EB37E9900A4BE68 /* Gimme_10.xcdatamodeld */,
-				EA855D321EB3BD21004CFB22 /* ChallengeSetupViewController.swift */,
-				EA855D431EB469F6004CFB22 /* AboutViewController.swift */,
+				EA3C334D1EB6F39700257A67 /* View */,
 				EA8A47501EB4D184007655DF /* Model */,
 			);
 			path = "Gimme 10";
@@ -165,9 +173,9 @@
 			files = (
 				EA88DAF71EB6851A00DD1DDE /* Challenge+CoreDataClass.swift in Sources */,
 				EA855D331EB3BD21004CFB22 /* ChallengeSetupViewController.swift in Sources */,
-				EAAFB8161EB37E9900A4BE68 /* ViewController.swift in Sources */,
 				EA8A474F1EB4D062007655DF /* Workout.swift in Sources */,
 				EA855D441EB469F6004CFB22 /* AboutViewController.swift in Sources */,
+				EA3C334C1EB6F37300257A67 /* HomeViewController.swift in Sources */,
 				EAAFB8141EB37E9900A4BE68 /* AppDelegate.swift in Sources */,
 				EAAFB81C1EB37E9900A4BE68 /* Gimme_10.xcdatamodeld in Sources */,
 				EA88DAF81EB6851A00DD1DDE /* Challenge+CoreDataProperties.swift in Sources */,
